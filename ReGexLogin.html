@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LOGpage</title>
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+<h1 class="text-center bg-dark text-white">Unlock this Page</h1>
+<div class="container">
+	<br>
+	<form onsubmit="return validation()" id="form">
+		<div class="form-group">
+		 <label>UserName :</label>
+		 <input type="text" name="" id="Uname" class="form-control">
+         <span id="userError" class="text-danger font-weight-bold"></span>
+		</div>
+
+		<div class="form-group">
+		 <label>Password :</label>
+		 <input type="password" name="" id="Pwd" class="form-control">
+		 <span id="pwdError" class="text-danger font-weight-bold"></span>
+		</div>
+
+		<div class="form-group">
+		 <label>Conferm password :</label>
+		 <input type="password" name="" id="Cpwd" class="form-control">
+		 <span id="cpwdError" class="text-danger font-weight-bold"></span>
+		</div>
+
+ 		<div class="form-group">
+		 <label>Email Id :</label>
+		 <input type="email" name="" id="email" class="form-control">
+		 <span id="emailError" class="text-danger font-weight-bold"></span>
+		</div>
+		
+		<div class="form-group">
+		 <label>Mobile No. :</label>
+		 <input type="text" name="" id="number" class="form-control">
+		 <span id="numError" class="text-danger font-weight-bold"></span>
+		</div>
+
+		<input type="submit" name="" class="btn btn-primary">
+	</form>
+</div>
+<script>
+function validation(){
+	var Uname = document.getElementById('Uname').value;
+	var Pwd = document.getElementById('Pwd').value;
+	var Cpwd = document.getElementById('Cpwd').value;
+	var email = document.getElementById('email').value;
+	var number = document.getElementById('number').value;
+
+	var usercheck = /^[A-Za-z. ]{3,30}$/;
+	var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-z0-9!@#$%^&*]{8,16}$/;
+	var emailcheck = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+	var mobilecheck = /^[6789][0-9]{9}$/;
+
+	if (usercheck.test(Uname)) {
+		document.getElementById('userError').innerHTML= " ";}
+	else{document.getElementById('userError').innerHTML="** Invalid Input";
+		  return false;}
+
+if (passwordcheck.test(Pwd)) {
+		document.getElementById('pwdError').innerHTML= " ";}
+	else{document.getElementById('pwdError').innerHTML="** Invalid Input";
+		  return false;}
+
+if (Cpwd.match(Pwd)) {
+		document.getElementById('cpwdError').innerHTML=" " ;}
+	else{document.getElementById('cpwdError').innerHTML="** Not matching";
+		  return false;}
+
+if (emailcheck.test(email)) {
+		document.getElementById('emailError').innerHTML=" " ;}
+	else{document.getElementById('emailError').innerHTML="** Invalid Input";
+		  return false;}
+
+if (mobilecheck.test(number)) {
+		document.getElementById('numError').innerHTML=" " ;}
+	else{document.getElementById('numError').innerHTML="** Invalid Input";
+		  return false;}
+
+
+
+
+
+}	
+</script>
+
+</body>
+</html>
